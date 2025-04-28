@@ -37,7 +37,7 @@ PINECONE_ENVIRONMENT = "us-east-1"
 INDEX_NAME = "learning"  
 
 2. Run the RAG system:
-
+```
 from RAG import RAG, AzureChatOpenAI, AzureOpenAIEmbeddings  
 import os  
 from dotenv import load_dotenv
@@ -73,6 +73,7 @@ rag = RAG(
 ## Ask questions
 response = rag.ask_question("Who founded Google?")
 print(response)
+```
 
 ## Available Vector Stores
 
