@@ -1,12 +1,8 @@
-Of course! Here's your cleaned-up version in **raw text** (no formatting like bold or markdown, just plain structure):
-
----
-
-Knowledge-Virtual-Agent
+# Knowledge-Virtual-Agent
 
 This project implements a Retrieval-Augmented Generation (RAG) system that allows users to ask questions about documents stored in the workspace.
 
-Project Structure
+## Project Structure
 
 .env                  # Environment variables configuration  
 RAG.py                # Main RAG implementation  
@@ -20,14 +16,14 @@ indexes/              # Vector store indexes
   ├── faiss/          # FAISS vector indexes  
   └── pinecone/       # Pinecone vector indexes  
 
-Features
+## Features
 
 - Support for multiple document types (PDF, TXT, web pages)
 - Multiple chunking strategies for text splitting
 - Multiple vector store backends (FAISS, Chroma, Pinecone)
 - Integration with Azure OpenAI for embeddings and completions
 
-Getting Started
+## Getting Started
 
 1. Configure the .env file with your API keys:
 
@@ -48,7 +44,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize models
+## Initialize models
 llm_model = AzureChatOpenAI(
     openai_api_key=os.getenv('api_key'),
     openai_api_base=os.getenv('endpoint'),
@@ -64,7 +60,7 @@ embedding_model = AzureOpenAIEmbeddings(
     azure_deployment=os.getenv('azure_embedding_model')
 )
 
-# Initialize RAG with local document path or webpage URL
+## Initialize RAG with local document path or webpage URL
 rag = RAG(
     path="documents/",
     chunking_type="recursive_text_split",
@@ -74,24 +70,24 @@ rag = RAG(
     embedding_model=embedding_model
 )
 
-# Ask questions
+## Ask questions
 response = rag.ask_question("Who founded Google?")
 print(response)
 
-Available Vector Stores
+## Available Vector Stores
 
 - FAISS: Fast, local vector storage (default)
 - Chroma: Local vector database with persistence
 - Pinecone: Cloud-based vector database (requires API key)
 
-Text Chunking Methods
+## Text Chunking Methods
 
 - fixed_text_split: Simple character-based splitting
 - recursive_text_split: Hierarchical splitting that respects document structure
 - token_text_split: Token-aware splitting for LLM context
 - sentence_transformer_text_split: Semantic-aware splitting
 
-Example Usage
+## Example Usage
 
 The repository comes with several information documents about Google, Sachin Tendulkar, and Khabib Nurmagomedov that can be queried for facts and information.
 
@@ -104,8 +100,3 @@ Requirements
 - pinecone
 - faiss-cpu or faiss-gpu
 - azure-openai
-
----
-
-Would you also like a **ready copy-paste version** with consistent indentations for Python code? (optional)  
-It'll look even cleaner if you're planning to paste it into a repo or share it! 🚀
