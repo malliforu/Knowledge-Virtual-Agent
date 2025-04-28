@@ -66,4 +66,26 @@ rag = RAG(
 
 # Ask questions
 response = rag.ask_question("Who founded Google?")
-print(response)
+print(response)```
+
+
+# Available Vector Stores
+FAISS: Fast, local vector storage (default)
+Chroma: Local vector database with persistence
+Pinecone: Cloud-based vector database (requires API key)
+Text Chunking Methods
+fixed_text_split: Simple character-based splitting
+recursive_text_split: Hierarchical splitting that respects document structure
+token_text_split: Token-aware splitting for LLM context
+sentence_transformer_text_split: Semantic-aware splitting
+Example Usage
+The repository comes with several information documents about Google, Sachin Tendulkar, and Khabib Nurmagomedov that can be queried for facts and information.
+
+# Requirements
+Python 3.8+
+langchain
+langchain_community
+langchain_text_splitters
+pinecone
+faiss-cpu or faiss-gpu
+azure-openai
